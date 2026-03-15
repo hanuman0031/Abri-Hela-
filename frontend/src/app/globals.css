@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap');
+
+:root {
+  /* ── Acid Brutalism Palette ── */
+  --bg-void:      #E8E6DF;  /* Outer wrapper / void */
+  --bg-base:      #F4F4F0;  /* Main background */
+  --bg-surface:   #FFFFFF;  /* Card background */
+  --bg-elevated:  #FAFAFA;
+  --bg-hover:     #EEEEEE;
+
+  /* Stark Accents */
+  --gold:         #FF3366;  /* Replacing gold with Shock Pink */
+  --gold-dim:     rgba(255,51,102,0.1);
+  --gold-muted:   #FF3366;
+  --gold-bright:  #FF0044;
+
+  /* Quant Green (Profit) -> Acid Green */
+  --green:        #00D14E; /* darker electric green for contrast on light */
+  --green-dim:    rgba(0,255,65,0.15);
+  --green-glow:   rgba(0,255,65,0.3);
+
+  /* Warm Red (Loss) -> Pure Red */
+  --red:          #FF0000;
+  --red-dim:      rgba(255,0,0,0.1);
+
+  /* Status */
+  --amber:        #FF6600;
+  --amber-dim:    rgba(255,102,0,0.1);
+  --blue:         #0047FF;  /* Hyper Blue */
+  --blue-dim:     rgba(0,71,255,0.1);
+  --violet:       #9D00FF;
+  --violet-dim:   rgba(157,0,255,0.1);
+
+  /* Text Hierarchy */
+  --text-1:       #000000;
+  --text-2:       #333333;
+  --text-3:       #666666;
+  --text-4:       #999999;
+
+  /* Borders & Brutalist Shadows */
+  --border-default: #000000;
+  --border-subtle:  #222222;
+  --border-gold:    #FF3366;
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Epilogue', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+
+  /* Spacing */
+  --r-sm: 0px;
+  --r-md: 0px;
+  --r-lg: 0px;
+  --r-xl: 0px;
+
+  /* Shadows */
+  --shadow-card:  4px 4px 0px #000000;
+  --shadow-glow:  6px 6px 0px #000000;
+  --shadow-deep:  8px 8px 0px #000000;
+}
+
+[data-theme="dark"] {
+  /* ── Acid Brutalism Palette (Dark Mode) ── */
+  --bg-void:      #121212;  /* Outer wrapper / void */
+  --bg-base:      #1A1A1A;  /* Main background */
+  --bg-surface:   #222222;  /* Card background */
+  --bg-elevated:  #2D2D2D;
+  --bg-hover:     #333333;
+
+  /* Stark Accents */
+  --gold:         #FF3366;  /* Replacing gold with Shock Pink */
+  --gold-dim:     rgba(255,51,102,0.15);
+  --gold-muted:   #FF3366;
+  --gold-bright:  #FF0044;
+
+  /* Quant Green (Profit) -> Acid Green */
+  --green:        #00FF5E; /* brighter electric green for contrast on dark */
+  --green-dim:    rgba(0,255,94,0.15);
+  --green-glow:   rgba(0,255,94,0.3);
+
+  /* Warm Red (Loss) -> Pure Red */
+  --red:          #FF3333;
+  --red-dim:      rgba(255,51,51,0.15);
+
+  /* Status */
+  --amber:        #FF8800;
+  --amber-dim:    rgba(255,136,0,0.15);
+  --blue:         #3377FF;  /* Hyper Blue */
+  --blue-dim:     rgba(51,119,255,0.15);
+  --violet:       #B233FF;
+  --violet-dim:   rgba(178,51,255,0.15);
+
+  /* Text Hierarchy */
+  --text-1:       #FFFFFF;
+  --text-2:       #CCCCCC;
+  --text-3:       #999999;
+  --text-4:       #666666;
+
+  /* Borders & Brutalist Shadows */
+  --border-default: #FFFFFF;
+  --border-subtle:  #444444;
+  --border-gold:    #FF3366;
+
+  /* Shadows remain solid but become white for the brutalist pop */
+  --shadow-card:  4px 4px 0px #FFFFFF;
+  --shadow-glow:  6px 6px 0px #FFFFFF;
+  --shadow-deep:  8px 8px 0px #FFFFFF;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-1);
+  background: var(--bg-base);
+  overflow-x: hidden;
+}
+
+/* ── Geometric Blueprint Pattern Overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(var(--text-4) 1px, transparent 1px),
+    linear-gradient(90deg, var(--text-4) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.15;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: var(--bg-base);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { border-left: 2px solid var(--border-default); background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--text-2); border-left: 2px solid var(--border-default); border-top: 2px solid var(--border-default); border-bottom: 2px solid var(--border-default); }
+::-webkit-scrollbar-thumb:hover { background: var(--blue); }
+
+/* ── Typography Classes ── */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--text-1);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.font-mono { font-family: var(--font-mono); }
+.font-serif { font-family: var(--font-display); }
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-1);
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-default);
+  padding: 4px 8px;
+  display: inline-block;
+  box-shadow: 2px 2px 0 var(--border-default);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+/* ── Card System ── */
+.card-standard {
+  background: var(--bg-surface);
+  border: 3px solid var(--border-default);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1), box-shadow 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.card-standard:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.card-glowing-accent {
+  background: var(--bg-surface);
+  border: 3px solid var(--blue);
+  box-shadow: 4px 4px 0px var(--blue);
+}
+.card-glowing-accent:hover {
+  box-shadow: 6px 6px 0px var(--blue);
+  transform: translate(-2px, -2px);
+}
+
+.card-glowing-violet {
+  background: var(--bg-surface);
+  border: 3px solid var(--violet);
+  box-shadow: 4px 4px 0px var(--violet);
+}
+.card-glowing-violet:hover {
+  box-shadow: 6px 6px 0px var(--violet);
+  transform: translate(-2px, -2px);
+}
+
+.card-glowing-blue {
+  background: var(--bg-surface);
+  border: 3px solid var(--amber);
+  box-shadow: 4px 4px 0px var(--amber);
+}
+.card-glowing-blue:hover {
+  box-shadow: 6px 6px 0px var(--amber);
+  transform: translate(-2px, -2px);
+}
+
+/* ── Network Indicator ── */
+.network-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--border-default);
+  background: var(--red);
+}
+.network-dot.healthy {
+  background: var(--green);
+  animation: brutalPulse 2s infinite;
+}
+
+/* ── Buttons ── */
+button {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  border: 3px solid var(--border-default);
+  box-shadow: 4px 4px 0 var(--border-default);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+button:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--border-default);
+}
+.gradient-btn {
+  background: var(--blue);
+  color: #fff !important;
+  border: 3px solid var(--border-default);
+}
+.gradient-btn:hover {
+  background: var(--gold);
+}
+
+/* ── Page Load Stagger System (High Impact) ── */
+.stagger-in {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  animation: brutalReveal 0.6s cubic-bezier(0.87, 0, 0.13, 1) forwards;
+}
+.stagger-in:nth-child(1) { animation-delay: 0.1s; }
+.stagger-in:nth-child(2) { animation-delay: 0.2s; }
+.stagger-in:nth-child(3) { animation-delay: 0.3s; }
+.stagger-in:nth-child(4) { animation-delay: 0.4s; }
+.stagger-in:nth-child(5) { animation-delay: 0.5s; }
+.stagger-in:nth-child(6) { animation-delay: 0.6s; }
+
+/* ── Keyframes ── */
+@keyframes brutalReveal {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes brutalPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+@keyframes profitFlash {
+  0% { transform: scale(1.05); color: var(--gold); text-shadow: 4px 4px 0 var(--border-default); }
+  100% { transform: scale(1); color: var(--green); text-shadow: none; }
+}
+.animate-profit-pulse {
+  animation: profitFlash 0.5s cubic-bezier(0.87, 0, 0.13, 1);
+}
+@keyframes drawLine {
+  from { stroke-dashoffset: 300; }
+  to { stroke-dashoffset: 0; }
+}
+.animate-draw-line {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: drawLine 1.5s cubic-bezier(0.87, 0, 0.13, 1) forwards;
+}
+@keyframes confettiPop {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0) rotate(180deg); opacity: 0; }
+}
+.confetti-piece {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--border-default);
+  animation: confettiPop 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* ── Utility ── */
+a { color: var(--blue); text-decoration: none; font-weight: 700; border-bottom: 2px solid var(--blue); transition: all 0.2s; padding-bottom: 2px; }
+a:hover { color: var(--gold); border-bottom-color: var(--gold); background: var(--gold-dim); }
+
+input, select, textarea {
+  font-family: var(--font-mono);
+  background: var(--bg-surface);
+  color: var(--text-1);
+  border: 3px solid var(--border-default);
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  box-shadow: 4px 4px 0 var(--border-default);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--border-default);
+  border-color: var(--blue);
+}
+::selection { background: var(--blue); color: #fff; }
+
+/* ── Toast Overrides for Brutalism ── */
+.toast-brutal {
+  border: 3px solid var(--border-default) !important;
+  box-shadow: 6px 6px 0 var(--border-default) !important;
+  border-radius: 0 !important;
+  background: var(--bg-surface) !important;
+  animation: slideInBrutal 0.4s cubic-bezier(0.87, 0, 0.13, 1) forwards !important;
+}
+@keyframes slideInBrutal {
+  from { transform: translateX(100%) scale(0.9); opacity: 0; }
+  to { transform: translateX(0) scale(1); opacity: 1; }
+}
