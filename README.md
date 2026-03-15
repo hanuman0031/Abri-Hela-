@@ -87,21 +87,3 @@ To receive testnet tokens for gas fees and trading simulation:
 1. Go to the [HeLa Testnet Faucet](https://testnet-faucet.helachain.com).
 2. Enter your wallet address.
 3. You will receive **10 HLUSD** every 24 hours.
-
----
-
-## 🛠️ Troubleshooting
-
-### "Internal JSON-RPC error" (Code -32603)
-If you see this error when connecting your wallet, it is a **Network Conflict**. This happens if a previous version of HeLa Testnet is already saved in your MetaMask.
-
-**Fix:**
-1. Open MetaMask extension.
-2. Go to **Settings** > **Networks**.
-3. Select any existing **HeLa Testnet** entries and click **Delete**.
-4. Refresh the ArbiHeLa dashboard and click **Connect Wallet** again.
-
----
-
-## 🧪 Why HeLa?
-This project is tailor-made for the HeLa architecture. Traditional EVM chains punish failed algorithmic trades with massive reverted gas costs. By leveraging **HLUSD** and HeLa's protocol-level gas-refunds, ArbiHeLa transforms what is normally a highly risky operation into a mathematically sound, penalty-free quantitative trading strategy.
