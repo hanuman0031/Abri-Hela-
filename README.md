@@ -86,4 +86,4 @@ To add the HeLa Testnet to MetaMask:
 To receive testnet tokens for gas fees and trading simulation:
 1. Go to the [HeLa Testnet Faucet](https://testnet-faucet.helachain.com).
 2. Enter your wallet address.
-3. You will receive **10 HLUSD** every 24 hours.
+3. You will receive **10 HLUSD** every 24 hours..
