@@ -13,7 +13,7 @@ ArbiHeLa is structurally divided into three production-grade components:
 * The "Muscle" of the operation. The Python bot triggers this contract to perform the actual trade.
 * **100% Risk-Free Guarantee:** Using an Atomic Swap architecture, the contract executes Leg 1 (Buy) and Leg 2 (Sell) within the exact same block. **Crucially, the contract checks its final token balance at the end of the execution.** If the net profit is less than expected, it systematically triggers a `require()` failure, reverting the entire transaction state so no capital is ever lost.
 
-### 2. The Quant Engine (Python & Web3.py)
+### 2. The Quant Engine 
 * **Location:** `bot/main.py`
 * The "Brain" of the operation. It runs a blazing-fast, asynchronous (`asyncio`) polling loop against multiple DEX routers on the HeLa Testnet.
 * It reads Live AMM pricing data concurrently. The millisecond it detects a profitable mathematical spread across decentralized exchanges, it builds, signs, and fires a raw transaction directly into the HeLa mempool.
