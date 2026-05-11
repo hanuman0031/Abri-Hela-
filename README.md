@@ -8,7 +8,7 @@ It completely eliminates cross-DEX arbitrage trading risk by wrapping the entire
 
 ArbiHeLa is structurally divided into three production-grade components:
 
-### 1. The Execution Layer (Solidity Smart Contract)
+### 1. The Execution Layer ()
 * **Location:** `contracts/ArbitrageExecutor.sol`
 * The "Muscle" of the operation. The Python bot triggers this contract to perform the actual trade.
 * **100% Risk-Free Guarantee:** Using an Atomic Swap architecture, the contract executes Leg 1 (Buy) and Leg 2 (Sell) within the exact same block. **Crucially, the contract checks its final token balance at the end of the execution.** If the net profit is less than expected, it systematically triggers a `require()` failure, reverting the entire transaction state so no capital is ever lost.
